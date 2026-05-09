@@ -7,7 +7,10 @@ const ProductSchema = z.object({
 });
 
 const productValidation = (req, res, next) => {
+  console.log(req.body);
   const { name, price, description } = req.body;
+
+  
 
   const payload = {
     name, price, description
@@ -21,7 +24,7 @@ const productValidation = (req, res, next) => {
   } else {
     return res.status(400).json({
       status: 400,
-      code: "INVALID_NAME",
+      code: "INVALID_TYPE",
       error: result.error
     });
   }
